@@ -20,7 +20,7 @@ async function getUser(email: string): Promise<User | undefined> {
   }
 }
 
-async function authorize(credentials: string) {
+async function authorize(credentials: unknown) {
   const parsedCredentials = z
     .object({email: z.string().email(), password: z.string().min(6)})
     .safeParse(credentials);
